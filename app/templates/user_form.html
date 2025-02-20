@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/css/form.css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <form id="appointmentForm">
+        <h1>Ваш профиль</h1>
+
+        <div class="input-box">
+            Здесь можно настроить как будет отображаться ваш день рождения и имя в группах
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" value="{{ first_name }}" required placeholder="Введите ваше имя">
+        </div>
+
+        <div class="input-box">
+            <label for="date">День рождения</label>
+            <input type="date" id="birth_date" name="birth_date" required>
+        </div>
+
+        <input type="hidden" id="user_id" value="{{ user_id }}">
+        <button type="submit" class="btn">Обновить</button>
+    </form>
+</main>
+
+{% include 'include/popup.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/user_form.js"></script>
+{% endblock %}

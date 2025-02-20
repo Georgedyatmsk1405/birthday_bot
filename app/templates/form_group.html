@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="/static/css/form.css">
+{% endblock %}
+
+{% block content %}
+<main>
+    <form id="appointmentForm">
+        <h1>Создать группу</h1>
+
+        <div class="input-box">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" required placeholder="Введите название группы">
+            <input type="number" step="1" min="1" max="364" id="notification_interval" name="notification_interval" required placeholder="За сколько дней предупредить?">
+
+        </div>
+
+
+        <input type="hidden" id="user_id" value="{{ user_id }}">
+        <button type="submit" class="btn">Создать</button>
+    </form>
+</main>
+
+{% include 'include/popup.html' %}
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/form_group.js"></script>
+{% endblock %}

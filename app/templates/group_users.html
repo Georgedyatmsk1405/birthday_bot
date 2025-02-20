@@ -1,0 +1,40 @@
+
+<link rel="stylesheet" href="/static/css/group_users.css">
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<main>
+    <h1>Дни рождения пользователей группы</h1>
+    <button onclick='fetchinvite()'>Сгенерировать ссылку приглашение</button>
+    <div class="openBtn">
+      <button class="openButton" onclick="openForm()"><strong>Редактировать</strong></button>
+    </div>
+    <div id="loginPopup">
+      <div class="formPopup" id="popupForm">
+        <form id="appointmentForm" class="formContainer">
+          <h2>Внесите изменения</h2>
+          <label for="Название">
+            <strong>Название группы</strong>
+          </label>
+          <input type="text" id="name" placeholder="name" name="name" required>
+             <label for="Название">
+            <strong>Интервал для предупреждений(за сколько дней)</strong>
+          </label>
+          <input type="number" step="1" min="1" max="364" id="notification_interval" name="notification_interval">
+          <button type="submit" class="btn">Изменить</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </div>
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>Инвайт сгенерирован - отправили в чат - там удобнее скопировать
+        (действие инвайта - 1 день)</h2>
+        <p id="popupMessage"></p>
+        <button class="btn" id="closePopup">Закрыть</button>
+    </div>
+</div>
+
+</main>
+
+<script src="/static/js/group_users.js"></script>

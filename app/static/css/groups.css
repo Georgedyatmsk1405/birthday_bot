@@ -1,0 +1,123 @@
+html, body, .parent {
+  height: 100%;
+  line-height: 1.3;
+  font-size: 24px;
+  font-family: monospace;
+  background-color: #fff;
+}
+
+
+.child {
+  display: flex;
+  margin: 1px;
+  overflow: auto;
+  outline: 1px dashed lightgray;
+  flex: none;
+}
+
+
+
+.child.y {
+  width: 100%;
+  height: 100%;
+  flex-flow: column nowrap;
+}
+/* scroll-snap */
+
+.y.proximity-scroll-snapping {
+  scroll-snap-type: y proximity;
+        &::-webkit-scrollbar{
+        width: 15px;
+        height: 12px;
+        }
+        &::-webkit-scrollbar-track {
+         background: #eaeaea;}
+         &::-webkit-scrollbar-thumb {
+  background-color: #ffa500;
+  border-radius: 5px;
+  border: 3px solid #eaeaea;}
+}
+
+.child > table {
+  text-align: center;
+  scroll-snap-align: center;
+  flex: none;
+  color: #fff;
+  text-shadow: #333 1px 0 1px;
+}
+
+
+/* CSS */
+
+
+/* CSS */
+button {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 28px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+}
+
+button:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+button:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
+}
+
+
+.y.child > table {
+  line-height: 40px;
+  width: 100%;
+  height: 30%;
+}
+table {width: 100%;}
+td {
+font-size: 28px;
+width:33.3%;
+    /* 'word-wrap: break-word' заставляет слова увлажняться в пределах ячейки */
+    word-wrap: break-word;
+    /* 'word-break: break-all' обеспечивает перенос словы в нужных местах */
+    word-break: break-all;
+  }
+/* appearance fixes */
+/* coloration */
+.child > table:nth-child(even) {
+  background-color: #8A2BE2;
+  word-break: break-all;
+  width: 100%;
+}
+
+
+.child > table:nth-child(odd) {
+  background-color: #8A2BE2;
+  word-wrap: break-all;
+  width: 100%;
+}
+
+
+
+
+
+
+
+.hidden {
+  display: none;
+}
