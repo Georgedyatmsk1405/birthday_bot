@@ -65,9 +65,8 @@ async def send_from_admin_to_group(message: Message, state: FSMContext):
         return
     data = await state.get_data()
     user_id, group_id = data["for_user_id"], data["group_id"]
-    user_ids = [u["user_id"] for u in await UserRepo.get_group_users(group_id=group_id)]
+    user_ids = [u["user_id"] for u in await UserRepo.get_group_users(group_id=group_id) if u["user_id"]!=user_id]
     tasks = []
-    print(user_ids)
     if message.text is not None:
         for user_id in user_ids:
             tasks.append(send_text(user_id, message))

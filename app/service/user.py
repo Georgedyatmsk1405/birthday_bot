@@ -23,9 +23,11 @@ class UserService:
             return "Для вступления в группу заполните имя"
         group = await GroupRepo.find_one_or_none(group_id=group_id)
         date = user.birth_date - timedelta(days=group.notification_interval)
+        exist = await UserRepo.get_group_user(user_id=user_id, group_id=group_id)
+        if exist:
+            return "Вы уже вступили"
         note_id = await UserRepo.add_to_group(user_id=user_id, group_id=group_id)
         job_id = f"G{note_id}"
-        print(job_id)
         scheduler.add_job(
             send_to_admin_user_notification,
             "cron",

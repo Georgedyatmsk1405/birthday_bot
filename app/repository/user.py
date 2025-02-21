@@ -35,6 +35,15 @@ class UserRepo(BaseRepo):
             ]
 
     @classmethod
+    async def get_group_user(cls, user_id: int, group_id: int):
+
+        async with async_session_maker() as session:
+            query = select(user_group_table).filter_by(group_id=group_id, user_id=user_id)
+            groups = await session.execute(query)
+            return [i[0] for i in groups]
+
+
+    @classmethod
     async def exclude_user(cls, user_id, group_id: int):
         async with async_session_maker() as session:
 

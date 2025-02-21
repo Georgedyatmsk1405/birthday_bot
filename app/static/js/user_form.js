@@ -31,7 +31,7 @@ document.getElementById('appointmentForm').addEventListener('submit', function (
       console.log(response.status)
       throw new Error(`Ошибка сети: ${response.status}`);
     }
-    const popupMessage = `${name}, вы записаны на в .`;
+    const popupMessage = `${name}, Профиль обновлен`;
     document.getElementById('popupMessage').textContent = popupMessage;
 
     document.getElementById('popup').style.display = 'flex';
