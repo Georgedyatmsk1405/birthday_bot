@@ -1,0 +1,36 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="/static/js/custom_notifications.js"></script>
+    <title>Custom Notifications</title>
+</head>
+<body>
+<div class="container">
+    <h1>{{ title_h1 }}</h1>
+    <!-- Таблица или список кастомных уведомлений -->
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for notification in applications %}
+            <tr>
+                <td>{{ notification.title }}</td>
+                <td>{{ notification.content }}</td>
+                <td>{{ notification.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+```
