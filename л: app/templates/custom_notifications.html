@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script defer src="/static/js/custom_notifications.js"></script>
+    <title>Custom Notifications</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>{{ title_h1 }}</h1>
+    <!-- Форма добавления нового уведомления -->
+    <form id="appointmentForm" class="mt-4">
+        <div class="form-group">
+            <label for="content">Текст уведомления:</label>
+            <textarea class="form-control" rows="3" id="content" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Создать уведомление</button>
+    </form>
+
+    <!-- Таблица существующих уведомлений -->
+    <div id="notificationsTable" class="mt-4">
+        <!-- Здесь будет динамически загруженная таблица уведомлений -->
+    </div>
+</div>
+
+<!-- Модальное окно подтверждения удаления -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Подтвердите удаление</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Вы действительно хотите удалить данное уведомление?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmBtn">Удалить</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+===
+Конец файла ===
