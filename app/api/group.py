@@ -12,7 +12,7 @@ from app.service.base import get_list
 from app.service.redis import redis
 from app.service.group import GroupService
 
-router = APIRouter(prefix="", tags=["API"])
+router = APIRouter(prefix="", tags=["API"]) #test
 
 
 @router.post("/group", response_class=JSONResponse)
